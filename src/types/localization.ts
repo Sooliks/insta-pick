@@ -3,4 +3,7 @@ export type LocalizationType = {
         title: string
         mainDescription: string
     }
+    components: {
+        selectLanguageLabel: string
+    }
 }
