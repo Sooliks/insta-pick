@@ -7,6 +7,9 @@ export const en: LocalizationType = {
         mainDescription: 'Minimal social network, choose a dialog right away'
     },
     components: {
-        selectLanguageLabel: 'Select a language'
+        selectLanguageLabel: 'Select a language',
+        mainMenu: {
+            exit: 'Sign out'
+        }
     }
 }

@@ -1,1 +1,1 @@
-InstaPick - мини соц сеть
+Instapick - мини соц сеть

@@ -6,6 +6,9 @@ export const ru: LocalizationType = {
         mainDescription: 'Минимальная социальная сеть, заходи и выбирай диалог'
     },
     components: {
-        selectLanguageLabel: 'Выберите язык'
+        selectLanguageLabel: 'Выберите язык',
+        mainMenu: {
+            exit: 'Выйти из аккаунта'
+        }
     }
 }

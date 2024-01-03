@@ -15,7 +15,7 @@ const SelectLanguage: React.FC = () => {
     return (
         <Select
             label={dictionary.components.selectLanguageLabel}
-            className="max-w-xs m-4"
+            className="max-w-xs m-4 absolute"
             onChange={handleSelect}
             selectedKeys={[configContext.config.currentLanguage]}
         >

@@ -4,6 +4,9 @@ export type LocalizationType = {
         mainDescription: string
     }
     components: {
-        selectLanguageLabel: string
+        selectLanguageLabel: string,
+        mainMenu: {
+            exit: string
+        }
     }
 }
