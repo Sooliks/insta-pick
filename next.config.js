@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    i18n: {
-        locales: ["en-US", "ru-RU"],
-        defaultLocale: "en-US"
-    }
+    /*i18n: {
+        locales: ["ru", "en"],
+        defaultLocale: "en",
+        //fallbackLng: 'en',
+        resources: {
+            en: {},
+            ru: {}
+        },
+        /!*detectBrowserLanguage: false*!/
+    }*/
 }
 
 module.exports = nextConfig

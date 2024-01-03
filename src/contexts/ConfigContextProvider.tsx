@@ -4,7 +4,6 @@ import {ConfigType} from "@/types/config";
 import {LanguageType} from "@/types/language";
 import {usePathname, useRouter} from "next/navigation";
 
-
 type ConfigContextProviderProps = {
     children: React.ReactNode
     lang: LanguageType

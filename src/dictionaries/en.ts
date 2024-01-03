@@ -1,4 +1,3 @@
-import {dictionary} from "@/dictionaries/dictionary";
 import {LocalizationType} from "@/types/localization";
 
 
