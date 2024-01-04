@@ -1,6 +1,6 @@
 'use client'
-import React, {useState} from 'react';
-import {Listbox, ListboxItem, Selection} from "@nextui-org/react";
+import React from 'react';
+import {Listbox, ListboxItem} from "@nextui-org/react";
 import {useConfigContext} from "@/contexts/ConfigContextProvider";
 import {getDictionary} from "@/dictionaries/dictionary";
 import {User} from "@nextui-org/user";
@@ -8,7 +8,6 @@ import {User} from "@nextui-org/user";
 const MenuLayout: React.FC = () => {
     const configContext = useConfigContext();
     const dictionary = getDictionary(configContext.config.currentLanguage);
-
     return (
         <Listbox
             aria-label="Actions"

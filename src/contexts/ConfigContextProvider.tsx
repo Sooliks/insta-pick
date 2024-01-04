@@ -2,7 +2,8 @@
 import React, {createContext, useContext, useLayoutEffect, useState} from 'react';
 import {ConfigType} from "@/types/config";
 import {getLocalization} from "@/services-client/localization";
-
+import {getCookie, setCookie} from "typescript-cookie";
+import {LanguageType} from "@/types/language";
 type ConfigContextProviderProps = {
     children: React.ReactNode
 }
@@ -17,10 +18,10 @@ const defaultConfig: ConfigType = {
 }
 const ConfigContextProvider: React.FC<ConfigContextProviderProps> = ({children}) => {
     const [config,setConfig] = useState<ConfigType>({
-        ...defaultConfig, currentLanguage: window.localStorage.getItem('language') || getLocalization()
+        ...defaultConfig, currentLanguage: getCookie('language') as LanguageType || getLocalization()
     });
     useLayoutEffect(()=> {
-        window.localStorage.setItem('language', config.currentLanguage);
+        setCookie('language', config.currentLanguage, { expires: 360 })
     },[config])
     return (
         <ConfigContext.Provider value={{config,setConfig}}>{children}</ConfigContext.Provider>

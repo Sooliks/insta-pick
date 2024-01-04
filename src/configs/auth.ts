@@ -26,7 +26,7 @@ export const authConfig: AuthOptions = {
         })
     ],
     pages: {
-        signIn: '/authorization/login'
+        signIn: '/authorization'
     },
     callbacks: {
         async jwt({ token, user, account }) {

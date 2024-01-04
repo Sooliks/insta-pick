@@ -8,9 +8,11 @@ import ConfigContextProvider from "@/contexts/ConfigContextProvider";
 import SelectLanguage from "@/components/SelectLanguage";
 import {Card} from "@nextui-org/card";
 import {getLocalization} from "@/services-client/localization";
+import {cookies} from "next/headers";
+import {LanguageType} from "@/types/language";
 const inter = Inter({ subsets: ['latin'] })
 export async function generateMetadata(): Promise<Metadata> {
-    const dictionary = getDictionary(getLocalization());
+    const dictionary = getDictionary(cookies().get('language')?.value as LanguageType || getLocalization());
     return {
         title: dictionary.metadata.title,
         description: dictionary.metadata.mainDescription,
@@ -24,8 +26,8 @@ export default function RootLayout({
   return (
     <html lang={getLocalization()} className='dark'>
         <body className={inter.className}>
-            <ConfigContextProvider>
-                <Providers>
+            <Providers>
+                <ConfigContextProvider>
                     <SelectLanguage/>
                     <main className="flex flex-col h-screen p-24 items-center justify-center">
                         <Card className={"w-11/12 h-[90%]"}>
@@ -34,8 +36,8 @@ export default function RootLayout({
                             </div>
                         </Card>
                     </main>
-                </Providers>
-            </ConfigContextProvider>
+                </ConfigContextProvider>
+            </Providers>
         </body>
     </html>
   )
