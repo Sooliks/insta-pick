@@ -6,4 +6,4 @@ export const dictionary: ILanguage = {
     en: en,
     ru: ru
 }
-export const getDictionary = (locale: LanguageType) => dictionary[locale];
+export const getDictionary = (locale: LanguageType) => dictionary[locale] || en;

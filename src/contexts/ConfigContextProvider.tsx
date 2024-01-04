@@ -1,12 +1,10 @@
 'use client'
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useLayoutEffect, useState} from 'react';
 import {ConfigType} from "@/types/config";
-import {LanguageType} from "@/types/language";
-import {usePathname, useRouter} from "next/navigation";
+import {getLocalization} from "@/services-client/localization";
 
 type ConfigContextProviderProps = {
     children: React.ReactNode
-    lang: LanguageType
 }
 type ConfigContextType = {
     config: ConfigType;
@@ -17,18 +15,12 @@ export const useConfigContext = () =>  useContext(ConfigContext);
 const defaultConfig: ConfigType = {
     currentLanguage: 'en'
 }
-const ConfigContextProvider: React.FC<ConfigContextProviderProps> = ({children, lang}) => {
-    const router = useRouter();
-    const pathname = usePathname();
+const ConfigContextProvider: React.FC<ConfigContextProviderProps> = ({children}) => {
     const [config,setConfig] = useState<ConfigType>({
-        ...defaultConfig, currentLanguage: lang
+        ...defaultConfig, currentLanguage: window.localStorage.getItem('language') || getLocalization()
     });
-    useEffect(()=>{
-        let newPath = pathname;
-        const searchValue = '/' + newPath.split('/')[1];
-        const replaceValue = '/' + config.currentLanguage;
-        newPath = newPath.replace(searchValue, replaceValue)
-        router.replace(newPath)
+    useLayoutEffect(()=> {
+        window.localStorage.setItem('language', config.currentLanguage);
     },[config])
     return (
         <ConfigContext.Provider value={{config,setConfig}}>{children}</ConfigContext.Provider>

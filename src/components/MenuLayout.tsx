@@ -1,6 +1,6 @@
 'use client'
-import React from 'react';
-import {Listbox, ListboxItem} from "@nextui-org/react";
+import React, {useState} from 'react';
+import {Listbox, ListboxItem, Selection} from "@nextui-org/react";
 import {useConfigContext} from "@/contexts/ConfigContextProvider";
 import {getDictionary} from "@/dictionaries/dictionary";
 import {User} from "@nextui-org/user";

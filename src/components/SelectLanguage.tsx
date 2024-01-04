@@ -4,8 +4,6 @@ import {Select, SelectItem} from "@nextui-org/react";
 import {languages} from "@/data/languages";
 import {useConfigContext} from "@/contexts/ConfigContextProvider";
 import {getDictionary} from "@/dictionaries/dictionary";
-
-
 const SelectLanguage: React.FC = () => {
     const configContext = useConfigContext();
     const dictionary = getDictionary(configContext.config.currentLanguage);
