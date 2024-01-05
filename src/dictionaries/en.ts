@@ -10,6 +10,9 @@ export const en: LocalizationType = {
         selectLanguageLabel: 'Select a language',
         mainMenu: {
             exit: 'Sign out'
+        },
+        buttons: {
+            start: 'Get started'
         }
     }
 }

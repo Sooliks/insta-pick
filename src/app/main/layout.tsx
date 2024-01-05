@@ -1,6 +1,5 @@
 import React from 'react';
 import MenuLayout from "@/components/MenuLayout";
-
 const MainLayout = async ({children} : {children: React.ReactNode}) => {
     return (
         <>

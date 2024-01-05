@@ -11,6 +11,7 @@ import {getLocalization} from "@/services-client/localization";
 import {cookies} from "next/headers";
 import {LanguageType} from "@/types/language";
 const inter = Inter({ subsets: ['latin'] })
+
 export async function generateMetadata(): Promise<Metadata> {
     const dictionary = getDictionary(cookies().get('language')?.value as LanguageType || getLocalization());
     return {
@@ -29,8 +30,8 @@ export default function RootLayout({
             <Providers>
                 <ConfigContextProvider>
                     <SelectLanguage/>
-                    <main className="flex flex-col h-screen p-24 items-center justify-center">
-                        <Card className={"w-11/12 h-[90%]"}>
+                    <main className="w-screen flex flex-col h-screen items-center justify-center p-4">
+                        <Card className={"w-full h-[85%]"}>
                             <div className={"flex w-full h-full"}>
                                 {children}
                             </div>

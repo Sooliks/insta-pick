@@ -9,6 +9,9 @@ export const ru: LocalizationType = {
         selectLanguageLabel: 'Выберите язык',
         mainMenu: {
             exit: 'Выйти из аккаунта'
+        },
+        buttons: {
+            start: 'Начать'
         }
     }
 }
