@@ -11,7 +11,25 @@ export const ru: LocalizationType = {
             exit: 'Выйти из аккаунта'
         },
         buttons: {
-            start: 'Начать'
+            start: 'Начать',
+            signIn: 'Войти',
+            regMenu: 'Регистрация',
+            signInMenu: 'Войти',
+            signUp: 'Зарегистрироваться'
+        },
+        inputs: {
+            inputEmail: 'Введите email',
+            inputLogin: 'Введите логин',
+            inputPassword: 'Введите пароль'
         }
+    },
+    errors: {
+        requiredEmail: 'Пожалуйста введите свой email',
+        requiredPassword: 'Пожалуйста введите свой пароль',
+        requiredLogin: 'Пожалуйста введите свой логин',
+        invalidEmail: 'Введите корректный email',
+        invalidLogin: 'Введите корректный логин',
+        passwordsDoNoMatch: 'Пароли не совпадают',
+        invalidEmailOrPass: 'Неверный email или пароль'
     }
 }

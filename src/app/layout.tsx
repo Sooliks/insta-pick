@@ -10,6 +10,7 @@ import {Card} from "@nextui-org/card";
 import {getLocalization} from "@/services-client/localization";
 import {cookies} from "next/headers";
 import {LanguageType} from "@/types/language";
+import {ToastContainer} from "react-toastify";
 const inter = Inter({ subsets: ['latin'] })
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -31,6 +32,18 @@ export default function RootLayout({
                 <ConfigContextProvider>
                     <SelectLanguage/>
                     <main className="w-screen flex flex-col h-screen items-center justify-center p-4">
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="dark"
+                        />
                         <Card className={"w-full h-[85%]"}>
                             <div className={"flex w-full h-full"}>
                                 {children}

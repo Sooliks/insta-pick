@@ -12,7 +12,25 @@ export const en: LocalizationType = {
             exit: 'Sign out'
         },
         buttons: {
-            start: 'Get started'
+            start: 'Get started',
+            signIn: 'Sign in',
+            regMenu: 'Sign up',
+            signInMenu: 'Sign in',
+            signUp: 'Sign up'
+        },
+        inputs: {
+            inputEmail: 'Enter your email',
+            inputLogin: 'Enter your login',
+            inputPassword: 'Enter your password'
         }
+    },
+    errors: {
+        requiredEmail: 'Please enter your email',
+        requiredPassword: 'Please enter your password',
+        requiredLogin: 'Please enter your login',
+        invalidEmail: 'Invalid email address',
+        invalidLogin: 'Invalid login',
+        passwordsDoNoMatch: 'Your passwords do no match',
+        invalidEmailOrPass: 'Invalid email or password'
     }
 }
