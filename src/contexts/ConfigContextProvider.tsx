@@ -1,5 +1,4 @@
 "use client"
-
 import React, {createContext, useContext, useState} from 'react';
 import {ConfigType} from "@/types/config";
 import {getLocalization} from "@/services-client/localization";
