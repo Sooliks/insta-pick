@@ -9,7 +9,8 @@ export const en: LocalizationType = {
     components: {
         selectLanguageLabel: 'Select a language',
         mainMenu: {
-            exit: 'Sign out'
+            exit: 'Sign out',
+            messenger: 'Messenger'
         },
         buttons: {
             start: 'Get started',
@@ -31,6 +32,7 @@ export const en: LocalizationType = {
         invalidEmail: 'Invalid email address',
         invalidLogin: 'Invalid login',
         passwordsDoNoMatch: 'Your passwords do no match',
-        invalidEmailOrPass: 'Invalid email or password'
+        invalidEmailOrPass: 'Invalid email or password',
+        passwordLength: 'The password must be more than 8 characters long'
     }
 }

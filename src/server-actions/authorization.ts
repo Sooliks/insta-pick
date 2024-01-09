@@ -2,7 +2,8 @@
 import prisma from "@/configs/prisma";
 import * as argon2 from "argon2";
 import {ResponseType} from "@/types/response";
-export const register = async (_login: string, _email: string, _password: string): Promise<ResponseType> => {
+import {LanguageType} from "@/types/language";
+export const signUp = async (_login: string, _email: string, _password: string, lang: LanguageType): Promise<ResponseType> => {
     let searchedUser = await prisma.user.findFirst({
         where: {
             email: {
@@ -11,7 +12,10 @@ export const register = async (_login: string, _email: string, _password: string
             }
         }
     });
-    if(searchedUser) return {status: 'error', message: 'Аккаунт с таким email уже существует!'}
+    if(searchedUser) return {
+        status: 'error',
+        message: lang === 'ru' ? 'Аккаунт с таким email уже существует!' : 'An account with this email already exists!'
+    }
     searchedUser = await prisma.user.findFirst({
         where: {
             login: {
@@ -20,7 +24,10 @@ export const register = async (_login: string, _email: string, _password: string
             }
         }
     });
-    if(searchedUser) return {status: 'error', message: 'Аккаунт с таким логином уже существует!'}
+    if(searchedUser) return {
+        status: 'error',
+        message: lang === 'ru' ? 'Аккаунт с таким логином уже существует!' : 'An account with this login already exists!'
+    }
     await prisma.user.create({
         data: {
             login: _login,
@@ -28,5 +35,8 @@ export const register = async (_login: string, _email: string, _password: string
             password: await argon2.hash(_password)
         }
     })
-    return {status: 'success', message: 'Вы успешно зарегистрировались'}
+    return {
+        status: 'success',
+        message: lang === 'ru' ? 'Вы успешно зарегистрировались!' : 'You have successfully registered!'
+    }
 }

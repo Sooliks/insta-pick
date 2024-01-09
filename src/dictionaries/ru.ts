@@ -8,7 +8,8 @@ export const ru: LocalizationType = {
     components: {
         selectLanguageLabel: 'Выберите язык',
         mainMenu: {
-            exit: 'Выйти из аккаунта'
+            exit: 'Выйти из аккаунта',
+            messenger: 'Сообщения'
         },
         buttons: {
             start: 'Начать',
@@ -30,6 +31,7 @@ export const ru: LocalizationType = {
         invalidEmail: 'Введите корректный email',
         invalidLogin: 'Введите корректный логин',
         passwordsDoNoMatch: 'Пароли не совпадают',
-        invalidEmailOrPass: 'Неверный email или пароль'
+        invalidEmailOrPass: 'Неверный email или пароль',
+        passwordLength: 'Пароль должен быть больше 8-ми символов'
     }
 }

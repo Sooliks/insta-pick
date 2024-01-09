@@ -7,6 +7,7 @@ export type LocalizationType = {
         selectLanguageLabel: string
         mainMenu: {
             exit: string
+            messenger: string
         }
         buttons: {
             start: string
@@ -29,5 +30,6 @@ export type LocalizationType = {
         invalidLogin: string
         passwordsDoNoMatch: string
         invalidEmailOrPass: string
+        passwordLength: string
     }
 }

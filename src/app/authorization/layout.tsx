@@ -7,8 +7,14 @@ import {getDictionary} from "@/dictionaries/dictionary";
 import {cookies} from "next/headers";
 import {getLocalization} from "@/services-client/localization";
 import {LanguageType} from "@/types/language";
+import {getServerSession} from "next-auth";
+import {permanentRedirect} from "next/navigation";
 const AuthorizationLayout = async ({children} : {children: React.ReactNode}) => {
     const dictionary = getDictionary(cookies().get('language')?.value as LanguageType || getLocalization());
+    const session = await getServerSession()
+    if(session){
+        permanentRedirect(`/main`)
+    }
     return (
         <div className={"w-full flex items-center justify-center flex-col"}>
             <Card className={"flex flex-row p-2 w-2/5 justify-center"}>
