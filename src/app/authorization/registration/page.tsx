@@ -51,8 +51,8 @@ const RegistrationPage = () => {
                 progress: undefined,
                 theme: "dark",
             });
+            setIsLoading(false)
         }
-        setIsLoading(false)
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={"w-3/5"}>

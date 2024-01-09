@@ -5,7 +5,7 @@ import {languages} from "@/data/languages";
 import {useConfigContext} from "@/contexts/ConfigContextProvider";
 import {getDictionary} from "@/dictionaries/dictionary";
 import {LanguageType} from "@/types/language";
-import {setCookie} from "typescript-cookie";
+import {removeCookie, setCookie} from "typescript-cookie";
 import {useRouter} from "next/navigation";
 const SelectLanguage: React.FC = () => {
     const configContext = useConfigContext();
@@ -13,6 +13,7 @@ const SelectLanguage: React.FC = () => {
     const {refresh} = useRouter()
     const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
         configContext.setConfig({...configContext.config, currentLanguage: e.target.value as LanguageType})
+        removeCookie('language')
         setCookie('language', e.target.value, {expires: 360})
         refresh()
     }
