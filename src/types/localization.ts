@@ -8,6 +8,7 @@ export type LocalizationType = {
         mainMenu: {
             exit: string
             messenger: string
+            news: string
         }
         buttons: {
             start: string
@@ -20,6 +21,7 @@ export type LocalizationType = {
             inputEmail: string
             inputPassword: string
             inputLogin: string
+            searchUser: string
         }
     },
     errors: {
@@ -31,5 +33,6 @@ export type LocalizationType = {
         passwordsDoNoMatch: string
         invalidEmailOrPass: string
         passwordLength: string
+        notFoundDialogs: string
     }
 }

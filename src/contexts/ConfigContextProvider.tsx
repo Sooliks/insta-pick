@@ -1,10 +1,9 @@
 "use client"
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useLayoutEffect, useState} from 'react';
 import {ConfigType} from "@/types/config";
 import {getLocalization} from "@/services-client/localization";
-import {getCookie} from "typescript-cookie";
+import {getCookie, removeCookie} from "typescript-cookie";
 import {LanguageType} from "@/types/language";
-import {usePathname, useRouter} from "next/navigation";
 type ConfigContextProviderProps = {
     children: React.ReactNode
 }
@@ -15,12 +14,17 @@ type ConfigContextType = {
 const ConfigContext = createContext({} as ConfigContextType)
 export const useConfigContext = () =>  useContext(ConfigContext);
 const defaultConfig: ConfigType = {
-    currentLanguage: 'en'
+    currentLanguage: getCookie('language') as LanguageType || getLocalization()
 }
 const ConfigContextProvider: React.FC<ConfigContextProviderProps> = ({children}) => {
     const [config,setConfig] = useState<ConfigType>({
         ...defaultConfig, currentLanguage: getCookie('language') as LanguageType || getLocalization()
     });
+    useLayoutEffect(()=>{
+        const language: LanguageType = getCookie('language') as LanguageType;
+        removeCookie('language')
+        setConfig({...config, currentLanguage: language})
+    },[])
     return (
         <ConfigContext.Provider value={{config,setConfig}}>{children}</ConfigContext.Provider>
     );

@@ -15,7 +15,7 @@ model User {
   password         String
   description      String?
   sentMessages     Message[] @relation("Sender")
-  receivedMessages Message[] @relation("Receiver")
+  receiverMessages Message[] @relation("Receiver")
 }
 
 model Message {

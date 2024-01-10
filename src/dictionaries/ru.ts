@@ -9,7 +9,8 @@ export const ru: LocalizationType = {
         selectLanguageLabel: 'Выберите язык',
         mainMenu: {
             exit: 'Выйти из аккаунта',
-            messenger: 'Сообщения'
+            messenger: 'Сообщения',
+            news: 'Новости'
         },
         buttons: {
             start: 'Начать',
@@ -21,7 +22,8 @@ export const ru: LocalizationType = {
         inputs: {
             inputEmail: 'Введите email',
             inputLogin: 'Введите логин',
-            inputPassword: 'Введите пароль'
+            inputPassword: 'Введите пароль',
+            searchUser: 'Добавить диалог'
         }
     },
     errors: {
@@ -32,6 +34,7 @@ export const ru: LocalizationType = {
         invalidLogin: 'Введите корректный логин',
         passwordsDoNoMatch: 'Пароли не совпадают',
         invalidEmailOrPass: 'Неверный email или пароль',
-        passwordLength: 'Пароль должен быть больше 8-ми символов'
+        passwordLength: 'Пароль должен быть больше 8-ми символов',
+        notFoundDialogs: 'У вас пока нету не одного диалога'
     }
 }

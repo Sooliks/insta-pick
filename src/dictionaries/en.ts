@@ -10,7 +10,8 @@ export const en: LocalizationType = {
         selectLanguageLabel: 'Select a language',
         mainMenu: {
             exit: 'Sign out',
-            messenger: 'Messenger'
+            messenger: 'Messenger',
+            news: 'News'
         },
         buttons: {
             start: 'Get started',
@@ -22,7 +23,8 @@ export const en: LocalizationType = {
         inputs: {
             inputEmail: 'Enter your email',
             inputLogin: 'Enter your login',
-            inputPassword: 'Enter your password'
+            inputPassword: 'Enter your password',
+            searchUser: 'Add dialog'
         }
     },
     errors: {
@@ -33,6 +35,7 @@ export const en: LocalizationType = {
         invalidLogin: 'Invalid login',
         passwordsDoNoMatch: 'Your passwords do no match',
         invalidEmailOrPass: 'Invalid email or password',
-        passwordLength: 'The password must be more than 8 characters long'
+        passwordLength: 'The password must be more than 8 characters long',
+        notFoundDialogs: 'Not found dialogs'
     }
 }

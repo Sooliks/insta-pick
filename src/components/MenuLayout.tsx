@@ -5,7 +5,6 @@ import {useConfigContext} from "@/contexts/ConfigContextProvider";
 import {getDictionary} from "@/dictionaries/dictionary";
 import {User} from "@nextui-org/user";
 import {signOut, useSession} from "next-auth/react";
-import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
 
 const MenuLayout: React.FC = () => {
@@ -39,6 +38,7 @@ const MenuLayout: React.FC = () => {
                     }}
                 />
             </ListboxItem>
+            <ListboxItem key="/main">{dictionary.components.mainMenu.news}</ListboxItem>
             <ListboxItem key="/main/messages">{dictionary.components.mainMenu.messenger}</ListboxItem>
             <ListboxItem key="signOut" className="text-danger" color="danger">
                 {dictionary.components.mainMenu.exit}
