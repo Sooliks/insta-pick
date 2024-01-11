@@ -3,57 +3,70 @@ import {getServerSession} from "next-auth";
 import {ResponseType} from "@/types/response";
 import prisma from "@/configs/prisma";
 
-export const sendMessage = async (recipientId: string, message: string): Promise<ResponseType> => {
+export const sendMessage = async (message: string, recipientId: string, chatId?: string): Promise<ResponseType> => {
     try {
         const session = await getServerSession();
         if (!session) return {status: 'error', message: 'Произошла ошибка, обновите страницу!'}
         await prisma.message.create({
             data: {
-                senderId: session.user.id,
-                receiverId: recipientId,
-                text: message
-            }
+                chat: {
+                    connectOrCreate: {
+                        where: {id: chatId},
+                        create: {
+                            users: {connect: [{id: session.user.id}, {id: recipientId}]},
+                        }
+                    }
+                },
+                text: message,
+                sender: {connect: {id: session.user.id}}
+            },
+            include: {chat: true}
         })
         return {status: 'success', message: ''}
     } catch (e) {
         return {status: 'error', message: 'Произошла ошибка, обновите страницу!'}
     }
 }
-//ТУТ ВСЕ ПРАВИЛЬНО
-export const getMessages = async (recipientId: string) => {
+export const getChatById = async (chatId: string) => {
     try {
         const session = await getServerSession();
         if (!session) return null
-        const messages = prisma.message.findMany({
+        const chat = await prisma.chat.findUnique({
             where: {
-                senderId: session.user.id,
-                receiverId: recipientId
+                id: chatId
+            },
+            select: {
+                messages: true,
+                users: {
+                    select: {
+                        password: false
+                    }
+                }
             }
         })
-        return messages;
+        return chat;
     } catch (e) {
         return null
     }
 }
-export const getDialogs = async () => {
+export const getChats = async () => {
     try {
         const session = await getServerSession();
         if (!session) return null;
-        const dialogues = await prisma.message.findMany({
-            where: {
-                OR: [
-                    { senderId: session.user.id },
-                    { receiverId: session.user.id }
-                ]
-            },
+        const chats = await prisma.user.findUnique({
+            where: {id: session.user.id},
             select: {
-                sender: true,
-                receiver: true,
-                text: true
-            },
-            distinct: ["senderId", "receiverId"]
-        });
-        return dialogues;
+                chats: {
+                    select: {
+                        messages: true,
+                        users: {
+                            select: {password: false}
+                        }
+                    }
+                }
+            }
+        })
+        return chats;
     } catch (e) {
         return null;
     }
