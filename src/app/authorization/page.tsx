@@ -17,8 +17,9 @@ const LoginPage = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors}
     } = useForm<LoginValues>({mode: 'onChange'});
+
     const configContext = useConfigContext();
     const dictionary = getDictionary(configContext.config.currentLanguage);
     const [isLoading,setIsLoading] = useState<boolean>(false)

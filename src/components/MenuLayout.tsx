@@ -34,7 +34,7 @@ const MenuLayout: React.FC = () => {
                     name={session.data?.user.login}
                     description={session.data?.user.description}
                     avatarProps={{
-                        src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                        src: `/avatars/${session.data?.user.login}`
                     }}
                 />
             </ListboxItem>

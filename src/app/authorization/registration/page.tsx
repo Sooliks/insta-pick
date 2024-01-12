@@ -24,6 +24,7 @@ const RegistrationPage = () => {
         formState: { errors },
         watch
     } = useForm<RegisterValues>({mode: 'onChange'});
+
     const [isLoading,setIsLoading] = useState<boolean>(false)
     const configContext = useConfigContext();
     const dictionary = getDictionary(configContext.config.currentLanguage);
